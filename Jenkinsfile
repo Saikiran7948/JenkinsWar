@@ -1,23 +1,32 @@
 pipeline {
-    agent any   
+    agent any
+
+    environment {
+        GIT_REPO = 'hhttps://github.com/Saikiran7948/JenkinsWar.git' // 🔁 Replace with your repo URL
+        GIT_BRANCH = 'master' // or 'master' or any branch you want
+    }
 
     stages {
-        stage("Git Checkout"){
-            steps{
-                git credentialsId: 'automation', url: 'https://github.com/saikiran7948/myweb.git'
+        stage('Clone') {
+            steps {
+                echo "Cloning from ${env.GIT_REPO}..."
+                git branch: "${env.GIT_BRANCH}", url: "${env.GIT_REPO}"
             }
         }
-        stage('build') {
+
+        stage('Build') {
             steps {
                 echo "Size ${params.size}"
             }
         }
-        stage('deploy') {
+
+        stage('Deploy') {
             steps {
                 echo "Color ${params.color}"
             }
         }
-        stage('build-test') {
+
+        stage('Build-Test') {
             steps {
                 sh "docker --version"
                 echo "test:color"
