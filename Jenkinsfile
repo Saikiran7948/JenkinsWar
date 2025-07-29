@@ -19,7 +19,7 @@ pipeline {
         }
         stage('build-test') {
             steps {
-                sh "docker --version"
+                sh "docker"
                 echo "test:color"
             }
         }
