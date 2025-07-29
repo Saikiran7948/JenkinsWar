@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'hhttps://github.com/Saikiran7948/JenkinsWar.git' // 🔁 Replace with your repo URL
+        GIT_REPO = 'https://github.com/Saikiran7948/JenkinsWar.git' // 🔁 Replace with your repo URL
         GIT_BRANCH = 'master' // or 'master' or any branch you want
     }
 
