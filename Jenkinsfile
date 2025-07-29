@@ -25,12 +25,5 @@ pipeline {
                 echo "Color ${params.color}"
             }
         }
-
-        stage('Build-Test') {
-            steps {
-                sh "docker --version"
-                echo "test:color"
-            }
-        }
     }
 }
