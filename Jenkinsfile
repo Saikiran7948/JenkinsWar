@@ -1,7 +1,12 @@
 pipeline {
-    agent any
+    agent any   
 
     stages {
+        stage("Git Checkout"){
+            steps{
+                git credentialsId: 'automation', url: 'https://github.com/saikiran7948/myweb.git'
+            }
+        }
         stage('build') {
             steps {
                 echo "Size ${params.size}"
